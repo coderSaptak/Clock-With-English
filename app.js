@@ -101,11 +101,22 @@ function updateEnglish(now, hours, isAm) {
 
     // Handle special cases for English time phrases
     var timeString = `It's <u>${englishWords[hours - 1]}</u> O'clock.` // Default: "It's X O'clock"
-    if (minutes > 0 && minutes <= 30) {
-        timeString = `It's <u>${englishWords[minutes - 1]}</u> <u>past</u> <u>${englishWords[hours - 1]}</u> O'clock.`
+    if (minutes==15 || minutes==30 || minutes==45){
+        if(minutes==15){
+            timeString=`It's <u> quarter past <u>${englishWords[hours - 1]}</u> O'clock.`
+        }
+        else if(minutes==30){
+            timeString=`It's <u> half past ${englishWords[hours - 1]}</u> O'clock.`            
+        }
+        else{
+            timeString=`It's <u> quarter to <u>${englishWords[hours - 1]}</u> O'clock.`
+        }
+    }
+    else if (minutes > 0 && minutes <= 30) {
+        timeString = `It's <u>${englishWords[minutes - 1]} past ${englishWords[hours - 1]}</u> O'clock.`
     } else if (minutes > 30) {
         var nextHour = hours === 12 ? 1 : hours + 1
-        timeString = `It's <u>${englishWords[60 - minutes - 1]}</u> <u>to</u> <u>${englishWords[nextHour - 1]}</u> O'clock.`
+        timeString = `It's <u>${englishWords[60 - minutes - 1]} to ${englishWords[nextHour - 1]}</u> O'clock.`
     }
 
     // Update the English time display
