@@ -85,7 +85,8 @@ body {
 
 @media only screen and (max-width: 768px) {
     body{
-        background: url(./mobile-space.jpg);
+        background: url(./mobile-space.jpg) !important;
+        background-size: cover !important;
     }
     .first, .second{
         width: 50px;
@@ -102,6 +103,6 @@ body {
     }
     .english{
         margin-top: 0;
-        font-size: 3vh;
+        font-size: 2.5vh;
     }
 }
