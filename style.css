@@ -12,7 +12,7 @@
 
 body {
     background: url(./space.jpg);
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     background-size: cover;
 }
 
@@ -20,6 +20,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 120px;
 }
 
 .clock {
@@ -79,4 +80,25 @@ body {
 
 .number{
     text-align: right;
+    height: max-content;
+}
+
+@media only screen and (min-width: 425px) and (max-width: 768px) {
+    .first, .second{
+        width: 50px;
+        height: 120px;
+    }
+    .clock{
+        font-size: 9vh;
+    }
+    .tick{
+        line-height: 20vh;
+    }
+    .clock-body{
+        margin-top: 20px;
+    }
+    .english{
+        margin-top: 0;
+        font-size: 3vh;
+    }
 }
